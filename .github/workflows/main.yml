@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PASSWORD }}
           script: |
-            cd /home/ubuntu/6weeks_Deepika_MEAN_backend
+            cd /home/ubuntu/6weeks_Deepika_MEAN_backend/
             git pull origin main
             sudo npm install
             pm2 restart Backend || pm2 start index.js --name "Backend"
