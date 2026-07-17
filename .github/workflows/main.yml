@@ -1,0 +1,27 @@
+name: backend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backendDeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: SSH Connection
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd /home/ubuntu/6weeks_Deepika_MEAN_backend
+            git pull origin main
+            sudo npm install
+            npm i
+            pm2 restart Backend || pm2 start index.js --name "Backend"
