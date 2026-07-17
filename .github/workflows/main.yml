@@ -23,5 +23,4 @@ jobs:
             cd /home/ubuntu/6weeks_Deepika_MEAN_backend
             git pull origin main
             sudo npm install
-            npm i
             pm2 restart Backend || pm2 start index.js --name "Backend"
